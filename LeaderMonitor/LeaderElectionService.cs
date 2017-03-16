@@ -29,10 +29,10 @@ namespace LeaderMonitor
 
         public void Start()
         {
-            timer = new Timer(async (object state) => await TryAccquireLock((CancellationToken)state), cts.Token, 0, Timeout.Infinite);
+            timer = new Timer(async (object state) => await TryAcquireLock((CancellationToken)state), cts.Token, 0, Timeout.Infinite);
         }
 
-        private async Task TryAccquireLock(CancellationToken token)
+        private async Task TryAcquireLock(CancellationToken token)
         {
             if (token.IsCancellationRequested)
                 return;
